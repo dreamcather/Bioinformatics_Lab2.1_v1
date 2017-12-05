@@ -133,6 +133,9 @@ int main()
 		}
 		fprintf_s(pFile,"\n");
 	}
+	fclose(pFile);
+	delete(Examples);
+	delete(Counter);
     return 0;
 }
 
