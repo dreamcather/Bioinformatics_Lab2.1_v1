@@ -104,6 +104,7 @@ int main()
 		}
 		fscanf_s(pFile, "%c", &chr);
 	}
+	fclose(pFile);
 	int max = Score();
 	int* res_mas = new int[Count_Examples];
 	for (int i = 0; i < Count_Examples; i++)
@@ -123,13 +124,14 @@ int main()
 		}
 		
 	}
+	err = fopen_s(&pFile, "output.txt", "w");
 	for (int i = 0; i < Count_Examples; i++)
 	{
 		for (int j = 0; j < Size_Motiv; j++)
 		{
-			printf("%c", Examples[i][res_mas[i] + j]);
+			fprintf_s(pFile,"%c", Examples[i][res_mas[i] + j]);
 		}
-		printf("\n");
+		fprintf_s(pFile,"\n");
 	}
     return 0;
 }
